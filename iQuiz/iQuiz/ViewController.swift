@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        NSLog("I was clicked! and the subject is \(selectedSubject)")
         if segue.identifier == "ShowQuestionSegue" {
             if let destinationVC = segue.destinationViewController as? QuestionController {
                 destinationVC.subject = selectedSubject

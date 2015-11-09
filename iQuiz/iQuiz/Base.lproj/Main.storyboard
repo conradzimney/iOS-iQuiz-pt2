@@ -51,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="1085" y="362"/>
         </scene>
-        <!--Question Controller-->
+        <!--<Subject> Quiz-->
         <scene sceneID="9yz-Ny-7XU">
             <objects>
                 <viewController id="IqU-DR-If7" customClass="QuestionController" sceneMemberID="viewController">
@@ -63,22 +63,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="? Quiz Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-PC-3Qd">
-                                <rect key="frame" x="240" y="289" width="120" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htA-57-Tjm">
+                                <rect key="frame" x="20" y="72" width="560" height="45"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KdD-ZD-1P2">
+                                <rect key="frame" x="0.0" y="119" width="600" height="278"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="KPX-PC-3Qd" firstAttribute="centerX" secondItem="hYd-4E-hWh" secondAttribute="centerX" id="TDO-Zh-4j7"/>
-                            <constraint firstItem="KPX-PC-3Qd" firstAttribute="centerY" secondItem="hYd-4E-hWh" secondAttribute="centerY" id="V6c-sc-uMs"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vXE-Jr-JPO"/>
+                    <navigationItem key="navigationItem" title="&lt;Subject&gt; Quiz" id="vXE-Jr-JPO"/>
+                    <connections>
+                        <outlet property="tableView" destination="KdD-ZD-1P2" id="StQ-pA-uml"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG5-9O-8hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
