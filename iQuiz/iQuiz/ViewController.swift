@@ -68,20 +68,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         NSLog("I was clicked!")
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        NSLog("I was clicked! and the subject is \(selectedSubject)")
+        if segue.identifier == "ShowQuestionSegue" {
+            if let destinationVC = segue.destinationViewController as? QuestionViewController {
+                destinationVC.subject = selectedSubject
+            }
+        }
+    }
+    
+    // Table View stuff //
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)! as! QuizCell
         selectedSubject = currentCell.subject
         NSLog(currentCell.subject)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        NSLog("I was clicked! and the subject is \(selectedSubject)")
-        if segue.identifier == "ShowQuestionSegue" {
-            if let destinationVC = segue.destinationViewController as? QuestionController {
-                destinationVC.subject = selectedSubject
-            }
-        }
     }
     
     func tableView(tableView: UITableView,
