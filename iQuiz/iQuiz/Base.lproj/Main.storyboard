@@ -49,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="362"/>
+            <point key="canvasLocation" x="1063" y="362"/>
         </scene>
         <!--<Subject> Quiz-->
         <scene sceneID="9yz-Ny-7XU">
@@ -63,8 +63,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;Question&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9F4-xT-eGZ">
+                                <rect key="frame" x="20" y="72" width="560" height="62"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KdD-ZD-1P2">
-                                <rect key="frame" x="0.0" y="119" width="600" height="278"/>
+                                <rect key="frame" x="0.0" y="135" width="600" height="278"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -102,7 +109,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="questionLabel" destination="9F4-xT-eGZ" id="x0d-9Y-kp6"/>
                         <outlet property="questionTableView" destination="KdD-ZD-1P2" id="u0Q-Us-Xme"/>
+                        <outlet property="quizTitle" destination="vXE-Jr-JPO" id="9C9-bY-14r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG5-9O-8hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,29 +130,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PU-Id-tS4">
-                                <rect key="frame" x="20" y="86" width="451" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correct Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PU-Id-tS4">
+                                <rect key="frame" x="20" y="124" width="451" height="39"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-xm-csV">
-                                <rect key="frame" x="219" y="396" width="98" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-xm-csV">
+                                <rect key="frame" x="251" y="405" width="98" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Next Question"/>
                                 <connections>
                                     <action selector="goToNextQuestion:" destination="80v-hA-Z3i" eventType="touchUpInside" id="xo8-wN-1av"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bp-Me-tbi">
+                                <rect key="frame" x="20" y="171" width="451" height="39"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;Question&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaU-5M-jEf">
+                                <rect key="frame" x="20" y="77" width="451" height="39"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5pf-xm-csV" firstAttribute="centerX" secondItem="QHv-xw-qiq" secondAttribute="centerX" id="Tq3-iK-YB1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="correctAnswerLabel" destination="7PU-Id-tS4" id="BNe-Ob-9nK"/>
+                        <outlet property="questionLabel" destination="IaU-5M-jEf" id="YfS-QS-9wF"/>
+                        <outlet property="yourAnswerLabel" destination="2Bp-Me-tbi" id="eqH-eS-KZ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuM-0M-JTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="362"/>
+            <point key="canvasLocation" x="2482" y="362"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iJs-Li-34j">
@@ -162,7 +193,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsI-fp-2DW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="273" y="362"/>
+            <point key="canvasLocation" x="357" y="362"/>
         </scene>
     </scenes>
 </document>

@@ -18,24 +18,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let mathQuestions = ["What is 2 + 2?","What is 45 / 9?","What is 9 * 11?", "What is 55-35?"]
     let mathAnswers = [
-        ["4","5","99","20"],
-        ["4","5","99","20"],
-        ["4","5","99","20"],
-        ["4","5","99","20"]
+        ["4","23","9","6"],
+        ["53","5","45","21"],
+        ["-1","67","99","100"],
+        ["x","y","23","20"]
     ]
-    let heroQuestions = ["Who wears a blue 'S' on their chest?","Who is a nocturnal flying mammal hero?","Who is the arachnid hero?","Who is the big green hero?"]
+    let heroQuestions = ["Who wears a blue 'S' on their chest?","Who is a nocturnal flying mammal hero?","Who is the male arachnid hero?","Who is the big green hero?"]
     let heroAnswers = [
-        ["Superman","Batman","Spiderman","The Incredible Hulk"],
-        ["Superman","Batman","Spiderman","The Incredible Hulk"],
-        ["Superman","Batman","Spiderman","The Incredible Hulk"],
-        ["Superman","Batman","Spiderman","The Incredible Hulk"]
+        ["Superman","Thor","Spiderman","Ironman"],
+        ["Ironman","Batman","Wolverine","The Incredible Hulk"],
+        ["Black Widow","Batman","Spiderman","Loki"],
+        ["Superman","Captain Marvel","Hawk Eye","The Incredible Hulk"]
     ]
     let scienceQuestions = ["What is the element with Atomic Name 'C'?","What is the element with Atomic Number 1?","What is an element with a different number of neutrons than normal called?","What is the Atomic Number of Helium?"]
     let scienceAnswers = [
-        ["Carbon","Hydrogen","Isotope","2"],
-        ["Carbon","Hydrogen","Isotope","2"],
-        ["Carbon","Hydrogen","Isotope","2"],
-        ["Carbon","Hydrogen","Isotope","2"]
+        ["Carbon","Nitrogen","Sulfur","Calcium"],
+        ["Helium","Hydrogen","Isotope","Boron"],
+        ["Atom","Molecule","Isotope","Bond"],
+        ["4","1","3","2"]
     ]
     
     var selectedSubject = ""
@@ -73,6 +73,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "ShowQuestionSegue" {
             if let destinationVC = segue.destinationViewController as? QuestionViewController {
                 destinationVC.subject = selectedSubject
+                switch selectedSubject {
+                    case "Mathematics":
+                        destinationVC.questions = mathQuestions
+                        destinationVC.answers = mathAnswers
+                    case "Marvel Super Heroes":
+                        destinationVC.questions = heroQuestions
+                        destinationVC.answers = heroAnswers
+                    case "Science":
+                        destinationVC.questions = scienceQuestions
+                        destinationVC.answers = scienceAnswers
+                default:
+                    destinationVC.questions = []
+                    destinationVC.answers = []
+                }
+                
             }
         }
     }
