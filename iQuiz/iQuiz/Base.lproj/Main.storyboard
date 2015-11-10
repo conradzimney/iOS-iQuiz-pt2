@@ -137,15 +137,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-xm-csV">
-                                <rect key="frame" x="251" y="405" width="98" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Next Question"/>
-                                <connections>
-                                    <action selector="goToNextQuestion:" destination="80v-hA-Z3i" eventType="touchUpInside" id="xo8-wN-1av"/>
-                                    <segue destination="IqU-DR-If7" kind="show" identifier="ShowQuestionSegue" id="pEA-32-k0y"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bp-Me-tbi">
                                 <rect key="frame" x="20" y="171" width="451" height="39"/>
                                 <animations/>
@@ -167,11 +158,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-xm-csV">
+                                <rect key="frame" x="251" y="285" width="98" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="goToNextQuestion:" destination="80v-hA-Z3i" eventType="touchUpInside" id="xo8-wN-1av"/>
+                                    <segue destination="IqU-DR-If7" kind="show" identifier="ShowQuestionSegue" id="pEA-32-k0y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VZC-1j-Cvf" firstAttribute="centerX" secondItem="QHv-xw-qiq" secondAttribute="centerX" id="6sV-C2-Sga"/>
+                            <constraint firstItem="5pf-xm-csV" firstAttribute="centerY" secondItem="QHv-xw-qiq" secondAttribute="centerY" id="Ofj-vS-HJN"/>
                             <constraint firstItem="5pf-xm-csV" firstAttribute="centerX" secondItem="QHv-xw-qiq" secondAttribute="centerX" id="Tq3-iK-YB1"/>
                         </constraints>
                     </view>
