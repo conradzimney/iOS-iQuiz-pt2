@@ -218,8 +218,7 @@
                                 <animations/>
                                 <state key="normal" title="Finish"/>
                                 <connections>
-                                    <action selector="finishBUtton:" destination="gKm-Gy-j35" eventType="touchUpInside" id="rnk-Mh-4MN"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="PgG-rg-mbT"/>
+                                    <segue destination="ToQ-hf-suI" kind="show" id="Kbf-CD-ghC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -260,7 +259,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PgG-rg-mbT"/>
         <segue reference="pEA-32-k0y"/>
     </inferredMetricsTieBreakers>
 </document>

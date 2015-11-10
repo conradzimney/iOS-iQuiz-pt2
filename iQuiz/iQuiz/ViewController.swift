@@ -62,8 +62,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func takeThisQuiz(sender: AnyObject) {
-        // I don't think this method even gets accessed... 
-        //NSLog("I was clicked!")
         if selectedSubject == "" {
             let message = "Please select a quiz"
             let controller = UIAlertController(title: "Error",
@@ -79,7 +77,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if selectedSubject == "" {
             return // This doesn't work yet
         }
-        //NSLog("I was clicked! and the subject is \(selectedSubject)")
         if segue.identifier == "ShowQuestionSegue" {
             if let destinationVC = segue.destinationViewController as? QuestionViewController {
                 destinationVC.subject = selectedSubject
@@ -107,7 +104,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)! as! QuizCell
         selectedSubject = currentCell.subject
-        //NSLog(currentCell.subject)
     }
     
     func tableView(tableView: UITableView,

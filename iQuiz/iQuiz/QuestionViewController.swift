@@ -8,15 +8,7 @@
 
 import UIKit
 
-/*
-struct Question {
-    var question : String
-    var answer : String
-}
-*/
-
 class QuestionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
     
     var questions = [String]()
     var answers = [Array<String>()]
@@ -30,26 +22,26 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     var subject = ""
     let cellTableIdentifier = "cell"
     var selectedAnswer = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if questionNumber == questions.count {
+            self.dismissViewControllerAnimated(false, completion: nil)
+            let fVC : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
+            self.presentViewController(fVC as! UIViewController, animated: false, completion: nil)
+            return
+        }
         self.questionTableView.delegate = self
         self.questionTableView.dataSource = self
         quizTitle.title = "\(subject) Quiz"
         questionLabel.text = questions[questionNumber]
-        NSLog(questions.description)
-        //NSLog(answers.description)
-        NSLog("\(questionNumber)")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //NSLog("I was clicked! and the subject is \(selectedSubject)")
         if segue.identifier == "ShowAnswerSegue" {
             if let destinationVC = segue.destinationViewController as? AnswerViewController {
                 destinationVC.chosenAnswer = selectedAnswer
@@ -72,7 +64,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)!
         selectedAnswer = (currentCell.textLabel?.text)!
-        //NSLog(selectedAnswer)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

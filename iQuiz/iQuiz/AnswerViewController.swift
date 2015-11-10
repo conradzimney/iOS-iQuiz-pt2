@@ -50,10 +50,7 @@ class AnswerViewController: UIViewController {
     
     @IBOutlet weak var correctnessLabel: UILabel!
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if !done {
             if segue.identifier == "ShowQuestionSegue" {
                 if let destinationVC = segue.destinationViewController as? QuestionViewController {
@@ -68,8 +65,7 @@ class AnswerViewController: UIViewController {
     
     @IBAction func goToNextQuestion(sender: UIButton) {
         if done {
-            var vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
-            //vc.numCorrect = numCorrect
+            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
             self.showViewController(vc as! UIViewController, sender: vc)
         }
     }
