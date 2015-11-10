@@ -32,26 +32,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     ]
     let scienceQuestions = ["What is the element with Atomic Name 'C'?","What is the element with Atomic Number 1?","What is an element with a different number of neutrons than normal called?","What is the Atomic Number of Helium?"]
     let scienceAnswers = [
-        ["Carbon","Nitrogen","Sulfur","Calcium"],
+        ["Carbon","Cesium","Californium","Calcium"],
         ["Helium","Hydrogen","Isotope","Boron"],
         ["Atom","Molecule","Isotope","Bond"],
         ["4","1","3","2"]
     ]
     
     var selectedSubject = ""
-    
     let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         tableView.registerClass(QuizCell.self, forCellReuseIdentifier: cellTableIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func settingsClicked(sender: AnyObject) {
@@ -65,11 +62,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func takeThisQuiz(sender: AnyObject) {
-        NSLog("I was clicked!")
+        // I don't think this method even gets accessed... 
+        //NSLog("I was clicked!")
+        if selectedSubject == "" {
+            let message = "Please select a quiz"
+            let controller = UIAlertController(title: "Error",
+                message: message, preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK",
+                style: .Default, handler: nil)
+            controller.addAction(action)
+            self.presentViewController(controller, animated: true, completion: nil)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        NSLog("I was clicked! and the subject is \(selectedSubject)")
+        if selectedSubject == "" {
+            return // This doesn't work yet
+        }
+        //NSLog("I was clicked! and the subject is \(selectedSubject)")
         if segue.identifier == "ShowQuestionSegue" {
             if let destinationVC = segue.destinationViewController as? QuestionViewController {
                 destinationVC.subject = selectedSubject
@@ -87,7 +97,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     destinationVC.questions = []
                     destinationVC.answers = []
                 }
-                
             }
         }
     }
@@ -98,7 +107,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)! as! QuizCell
         selectedSubject = currentCell.subject
-        NSLog(currentCell.subject)
+        //NSLog(currentCell.subject)
     }
     
     func tableView(tableView: UITableView,
@@ -108,7 +117,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! QuizCell
-        
         let imageView = UIImageView(frame: CGRectMake(10, 10, 5, 5))
         let image = UIImage(named: "quiz")
         imageView.image = image

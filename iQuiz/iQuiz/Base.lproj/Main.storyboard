@@ -76,7 +76,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Wvc-RK-KKf" style="IBUITableViewCellStyleDefault" id="0Nt-9W-j7r">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Nt-9W-j7r" id="f18-zQ-Pms">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -143,6 +143,7 @@
                                 <state key="normal" title="Next Question"/>
                                 <connections>
                                     <action selector="goToNextQuestion:" destination="80v-hA-Z3i" eventType="touchUpInside" id="xo8-wN-1av"/>
+                                    <segue destination="IqU-DR-If7" kind="show" identifier="ShowQuestionSegue" id="pEA-32-k0y"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bp-Me-tbi">
@@ -159,15 +160,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;Correctness&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZC-1j-Cvf">
+                                <rect key="frame" x="243" y="218" width="115" height="29"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VZC-1j-Cvf" firstAttribute="centerX" secondItem="QHv-xw-qiq" secondAttribute="centerX" id="6sV-C2-Sga"/>
                             <constraint firstItem="5pf-xm-csV" firstAttribute="centerX" secondItem="QHv-xw-qiq" secondAttribute="centerX" id="Tq3-iK-YB1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="correctAnswerLabel" destination="7PU-Id-tS4" id="BNe-Ob-9nK"/>
+                        <outlet property="correctnessLabel" destination="VZC-1j-Cvf" id="FeY-LM-gUk"/>
                         <outlet property="questionLabel" destination="IaU-5M-jEf" id="YfS-QS-9wF"/>
                         <outlet property="yourAnswerLabel" destination="2Bp-Me-tbi" id="eqH-eS-KZ2"/>
                     </connections>
@@ -175,6 +185,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuM-0M-JTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2482" y="362"/>
+        </scene>
+        <!--Finished View Controller-->
+        <scene sceneID="qaI-ok-Uji">
+            <objects>
+                <viewController storyboardIdentifier="FinishedViewController" id="gKm-Gy-j35" customClass="FinishedViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OB4-q2-0Hw"/>
+                        <viewControllerLayoutGuide type="bottom" id="jvB-Ia-ZAD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BQW-T9-3mz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;Grade Description&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-kD-mfI">
+                                <rect key="frame" x="20" y="28" width="580" height="55"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;# Correct / Total&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KL-80-Z5q">
+                                <rect key="frame" x="20" y="91" width="580" height="55"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxy-ac-JZA">
+                                <rect key="frame" x="280" y="285" width="41" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Finish"/>
+                                <connections>
+                                    <action selector="finishBUtton:" destination="gKm-Gy-j35" eventType="touchUpInside" id="rnk-Mh-4MN"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="PgG-rg-mbT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pxy-ac-JZA" firstAttribute="centerY" secondItem="BQW-T9-3mz" secondAttribute="centerY" id="W1w-x7-tgE"/>
+                            <constraint firstItem="Pxy-ac-JZA" firstAttribute="centerX" secondItem="BQW-T9-3mz" secondAttribute="centerX" id="alW-g7-Suf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gradeDescLabel" destination="HTd-kD-mfI" id="7FK-F8-W8R"/>
+                        <outlet property="gradeLabel" destination="5KL-80-Z5q" id="WuJ-7m-M6T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRY-uQ-bs2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2482" y="1087"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iJs-Li-34j">
@@ -196,4 +258,8 @@
             <point key="canvasLocation" x="357" y="362"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PgG-rg-mbT"/>
+        <segue reference="pEA-32-k0y"/>
+    </inferredMetricsTieBreakers>
 </document>
