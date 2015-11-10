@@ -26,9 +26,18 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         if questionNumber == questions.count {
+            /*
             self.dismissViewControllerAnimated(false, completion: nil)
             let fVC : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
             self.presentViewController(fVC as! UIViewController, animated: false, completion: nil)
+            */
+            
+            //var vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
+            let vc = FinishedViewController()
+            vc.numCorrect = numCorrect
+            //vc.numCorrect = numCorrect
+            self.showViewController(vc as UIViewController, sender: vc)
+            
             return
         }
         self.questionTableView.delegate = self

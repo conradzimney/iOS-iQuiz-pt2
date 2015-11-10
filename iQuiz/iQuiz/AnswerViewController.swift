@@ -65,8 +65,11 @@ class AnswerViewController: UIViewController {
     
     @IBAction func goToNextQuestion(sender: UIButton) {
         if done {
-            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
-            self.showViewController(vc as! UIViewController, sender: vc)
+            //var vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
+            let vc = FinishedViewController()
+            vc.numCorrect = numCorrect
+            //vc.numCorrect = numCorrect
+            self.showViewController(vc as UIViewController, sender: vc)
         }
     }
 

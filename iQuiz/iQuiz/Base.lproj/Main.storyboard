@@ -230,8 +230,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="gradeDescLabel" destination="HTd-kD-mfI" id="7FK-F8-W8R"/>
-                        <outlet property="gradeLabel" destination="5KL-80-Z5q" id="WuJ-7m-M6T"/>
+                        <outlet property="gradeDescLabel" destination="HTd-kD-mfI" id="HnG-GS-OI9"/>
+                        <outlet property="gradeLabel" destination="5KL-80-Z5q" id="k1i-SJ-Hav"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRY-uQ-bs2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class FinishedViewController: UIViewController {
     var numCorrect = 0
     var total = 4
     var gradeDescription = ""
+    var grade = ""
     
     @IBOutlet weak var gradeDescLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
@@ -25,21 +26,23 @@ class FinishedViewController: UIViewController {
         super.viewDidLoad()
         switch numCorrect {
         case 4:
-            gradeDescLabel.text = "Perfect!"
-            gradeLabel.text = "You got \(numCorrect) out of \(total) correct."
+            gradeDescription = "Perfect!"
+            grade = "You got \(numCorrect) out of \(total) correct."
         case 3:
-            gradeDescLabel.text = "Not bad!"
-            gradeLabel.text = "You got \(numCorrect) out of \(total) correct."
+            gradeDescription = "Not bad!"
+            grade = "You got \(numCorrect) out of \(total) correct."
         case 2:
-            gradeDescLabel.text = "50% is still an F"
-            gradeLabel.text = "You got \(numCorrect) out of \(total) correct."
+            gradeDescription = "50% is still an F..."
+            grade = "You got \(numCorrect) out of \(total) correct."
         case 1:
-            gradeDescLabel.text = "Not very good."
-            gradeLabel.text = "You got \(numCorrect) out of \(total) correct."
+            gradeDescription = "Not very good."
+            grade = "You got \(numCorrect) out of \(total) correct."
         default:
-            gradeDescLabel.text = "You need some serious improvement..."
-            gradeLabel.text = "You got \(numCorrect) out of \(total) correct."
+            gradeDescription = "You need some serious improvement..."
+            grade = "You got \(numCorrect) out of \(total) correct."
         }
+        gradeDescLabel.text = gradeDescription
+        gradeLabel.text = grade
     }
     
     override func didReceiveMemoryWarning() {
