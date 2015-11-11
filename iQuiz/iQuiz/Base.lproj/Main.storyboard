@@ -158,8 +158,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-xm-csV">
-                                <rect key="frame" x="251" y="285" width="98" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pf-xm-csV">
+                                <rect key="frame" x="241" y="280" width="118" height="39"/>
                                 <animations/>
                                 <state key="normal" title="Next Question"/>
                                 <connections>
@@ -207,14 +207,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxy-ac-JZA">
-                                <rect key="frame" x="280" y="285" width="41" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Finish"/>
-                                <connections>
-                                    <segue destination="ToQ-hf-suI" kind="show" id="Kbf-CD-ghC"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;# Correct / Total&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KL-80-Z5q">
                                 <rect key="frame" x="20" y="127" width="580" height="55"/>
                                 <animations/>
@@ -222,6 +214,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxy-ac-JZA">
+                                <rect key="frame" x="265" y="277" width="71" height="46"/>
+                                <animations/>
+                                <state key="normal" title="Finish"/>
+                                <connections>
+                                    <segue destination="ToQ-hf-suI" kind="show" id="Kbf-CD-ghC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

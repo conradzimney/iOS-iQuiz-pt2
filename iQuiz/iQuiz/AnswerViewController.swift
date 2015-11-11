@@ -12,7 +12,6 @@ class AnswerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("\(questionNumber)")
         self.navigationItem.setHidesBackButton(true, animated: false)
         questionLabel.text = question
         yourAnswerLabel.text = "Your answer: \(chosenAnswer)"
