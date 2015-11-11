@@ -51,7 +51,7 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var correctnessLabel: UILabel!
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if !done {
+        //if !done {
             if segue.identifier == "ShowQuestionSegue" {
                 if let destinationVC = segue.destinationViewController as? QuestionViewController {
                     destinationVC.questionNumber = questionNumber + 1
@@ -59,17 +59,20 @@ class AnswerViewController: UIViewController {
                     destinationVC.answers = answers
                     destinationVC.numCorrect = numCorrect
                 }
+            } else if segue.identifier == "ShowFinishedSegue" {
+                if let destinationVC = segue.destinationViewController as? FinishedViewController {
+                    destinationVC.numCorrect = numCorrect
+                }
             }
-        }
+        //}
     }
     
     @IBAction func goToNextQuestion(sender: UIButton) {
         if done {
-            //var vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("FinishedViewController")
-            let vc = FinishedViewController()
-            vc.numCorrect = numCorrect
-            //vc.numCorrect = numCorrect
-            self.showViewController(vc as UIViewController, sender: vc)
+            self.performSegueWithIdentifier("ShowFinishedSegue", sender: nil)
+        } else {
+            self.performSegueWithIdentifier("ShowQuestionSegue", sender: nil)
+
         }
     }
 

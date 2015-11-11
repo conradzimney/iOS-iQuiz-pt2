@@ -18,10 +18,6 @@ class FinishedViewController: UIViewController {
     @IBOutlet weak var gradeDescLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
     
-    /*@IBAction func finishBUtton(sender: AnyObject) {
-        // Don't need to do anything here
-    }*/
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         switch numCorrect {
@@ -41,22 +37,12 @@ class FinishedViewController: UIViewController {
             gradeDescription = "You need some serious improvement..."
             grade = "You got \(numCorrect) out of \(total) correct."
         }
-        gradeDescLabel.text = gradeDescription
-        gradeLabel.text = grade
+        gradeDescLabel?.text = gradeDescription
+        gradeLabel?.text = grade
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
