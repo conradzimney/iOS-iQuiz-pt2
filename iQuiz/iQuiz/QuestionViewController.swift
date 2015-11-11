@@ -29,8 +29,21 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
         self.questionTableView.dataSource = self
         quizTitle.title = "\(subject) Quiz"
         questionLabel.text = questions[questionNumber]
+        
+        navigationController!.setNavigationBarHidden(false, animated:true)
+        let myBackButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
+        myBackButton.addTarget(self, action: "popToRoot:", forControlEvents: UIControlEvents.TouchUpInside)
+        myBackButton.setTitle("Back", forState: UIControlState.Normal)
+        myBackButton.sizeToFit()
+        myBackButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        let myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
+        self.navigationItem.leftBarButtonItem = myCustomBackButtonItem
     }
 
+    func popToRoot(sender:UIBarButtonItem){
+        self.navigationController!.popToRootViewControllerAnimated(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
