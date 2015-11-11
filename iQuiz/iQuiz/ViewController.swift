@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ["Black Widow","Batman","Spiderman","Loki"],
         ["Superman","Captain Marvel","Hawk Eye","The Incredible Hulk"]
     ]
-    let scienceQuestions = ["What is the element with Atomic Name 'C'?","What is the element with Atomic Number 1?","What is an element with a different number of neutrons than normal called?","What is the Atomic Number of Helium?"]
+    let scienceQuestions = ["What is the element with Atomic Name 'C'?","What is the element with Atomic Number 1?","Atom with different number of neutrons?","What is the Atomic Number of Helium?"]
     let scienceAnswers = [
         ["Carbon","Cesium","Californium","Calcium"],
         ["Helium","Hydrogen","Isotope","Boron"],
@@ -74,9 +74,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if selectedSubject == "" {
-            return // This doesn't work yet
-        }
         if segue.identifier == "ShowQuestionSegue" {
             if let destinationVC = segue.destinationViewController as? QuestionViewController {
                 destinationVC.subject = selectedSubject
@@ -126,6 +123,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
-
 }
 
